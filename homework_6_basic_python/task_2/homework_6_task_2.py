@@ -1,5 +1,6 @@
 import os
 
+file_location = os.getcwd()
 os.chdir("../..")
 root_folder = os.getcwd()
 
@@ -10,6 +11,7 @@ for folder_name, sub_folders, filenames in os.walk(root_folder):
         file_size = os.path.getsize(file_path)
         file_names_sizes[file] = file_size
 
+os.chdir(file_location)
 with open("files_size.txt", "w") as file:
     for key, value in file_names_sizes.items():
         file.write(f"{key}: {value} bites\n")
